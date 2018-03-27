@@ -1,0 +1,6 @@
+target/
+.idea/
+gs-rest-service.iml
+*.iml
+.DS_Store
+*.idea
