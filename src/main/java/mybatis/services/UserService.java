@@ -106,10 +106,4 @@ public class UserService {
         return userMapper.getByID(id);
     }
 
-    public ArrayList<User> getUserByAge(int age){
-        return userMapper.getUserByAge(age);
-    }
-
-
-
 }

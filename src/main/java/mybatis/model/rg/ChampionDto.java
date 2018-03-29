@@ -1,11 +1,21 @@
-package mybatis.model.RiotGames;
+package mybatis.model.rg;
 
-public class RGRoot {
+public class ChampionDto {
 
-    String name;
-    String title;
-    int id;
     StatsDto stats;
+    String name;
+    int id;
+    String title;
+    String key;
+
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
 
     public String getName() {
         return name;

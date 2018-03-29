@@ -38,6 +38,7 @@ public class UserController {
     //Create
     @RequestMapping(method = RequestMethod.POST, value = "/")
     public User addNew(@RequestBody User user) {
+
         return userService.addNew(user);
     }
 
@@ -53,8 +54,6 @@ public class UserController {
         return userService.deleteById(id);
     }
 
-    @RequestMapping("/age")
-    public ArrayList<User> getUsers(@RequestParam(value="age") int age) {
-        return userService.getUserByAge(age);
+
     }
-}
+

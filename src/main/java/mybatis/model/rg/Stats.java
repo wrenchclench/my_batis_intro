@@ -1,10 +1,10 @@
-package mybatis.model.RiotGames;
+package mybatis.model.rg;
 
-public class StatsDto {
+public class Stats {
 
     double armorperlevel;
     double hpperlevel;
-    double attackdamage;
+    int attackdamage;
     double mpperlevel;
     double attackspeedoffset;
     double armor;
@@ -43,7 +43,7 @@ public class StatsDto {
         return attackdamage;
     }
 
-    public void setAttackdamage(double attackdamage) {
+    public void setAttackdamage(int attackdamage) {
         this.attackdamage = attackdamage;
     }
 

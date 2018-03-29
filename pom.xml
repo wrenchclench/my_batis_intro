@@ -56,10 +56,16 @@
         </plugins>
     </build>
 
+
+
     <repositories>
         <repository>
             <id>spring-releases</id>
             <url>https://repo.spring.io/libs-release</url>
+        </repository>
+        <repository>
+            <id>fullcontact</id>
+            <url>http://dl.bintray.com/content/fullcontact/fullcontact-oss</url>
         </repository>
     </repositories>
     <pluginRepositories>
