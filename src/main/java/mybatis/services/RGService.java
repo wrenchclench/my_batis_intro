@@ -44,7 +44,7 @@ public class RGService {
     //-------------------------------------------------------------
     // Pull character stats
     public StatsDto pullCharacterStatsbyID(String query, boolean persist) {
-        String fQuery = "https://oc1.api.riotgames.com/lol/static-data/v3/champions/"+query+"?locale=en_US&champData=stats&api_key=RGAPI-e9d550f4-a1c0-46f8-a1df-a8a8356893f1";
+        String fQuery = "https://oc1.api.riotgames.com/lol/static-data/v3/champions/"+query+"?locale=en_US&champData=stats&api_key=YOURAPIKEY";
 
         System.out.println(fQuery);
 

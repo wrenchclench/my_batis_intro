@@ -1,10 +1,7 @@
 package mybatis.services;
 
 import mybatis.mappers.fc.FCMapper;
-import mybatis.model.fc.PersonSummary;
-import mybatis.model.fc.SearchSummary;
-import mybatis.model.fc.TopicSummary;
-import mybatis.model.fc.Topics;
+import mybatis.model.fc.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -19,11 +16,14 @@ public class FCService {
     @Autowired
     FCMapper fcMapper;
 
+    @Autowired
+    WatsonService watsonService;
+
 
     // Access FullContact API via a given email address
     public PersonSummary searchByEmail(String query, boolean persist) {
 
-        String fQuery = "https://api.fullcontact.com/v2/person.json?email=" + query + "&apiKey=";
+        String fQuery = "https://api.fullcontact.com/v2/person.json?email=" + query + "&apiKey=YOURAPIKEY";
 
         PersonSummary response = restTemplate.getForObject(fQuery, PersonSummary.class);
 
@@ -33,6 +33,8 @@ public class FCService {
         }
 
         insertTopics(response);
+        //pullSocialUrl(response);
+        //watsonService.classifyImages(pullSocialUrl(response));
 
         return response;
     }
@@ -70,6 +72,24 @@ public class FCService {
             }
         }
         return topicArray;
+    }
+
+    public SocialPhotoUrl pullSocialUrl(PersonSummary result){
+
+        Photos[] photosArray = result.getPhotos();
+
+        SocialPhotoUrl obj = null;
+
+        for (Photos p : photosArray){
+
+            obj = new SocialPhotoUrl();
+
+            if ((p.getTypeName().compareTo("Facebook") == 1)){
+                obj.setImageUrl(p.getUrl());
+            }
+        }
+        System.out.println(obj.getImageUrl());
+        return obj;
     }
 
 }
